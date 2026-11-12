@@ -6,3 +6,12 @@ __pycache__/
 *.log
 *日志*
 *_err.txt
+
+venv/
+*.zip
+交接文档.md
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

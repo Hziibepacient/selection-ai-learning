@@ -1,5 +1,5 @@
-keyboard
-pyperclip
-pyautogui
-pygetwindow
-uiautomation
+keyboard==0.13.5
+pyperclip==1.11.0
+pyautogui==0.9.54
+pygetwindow==0.0.9
+uiautomation==2.0.29

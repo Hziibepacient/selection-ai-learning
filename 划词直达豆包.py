@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-划词直达豆包工作工具（原型 v4）
+划词直达豆包工作工具（高可靠版 v4）
 Ctrl+Q：复制选区 -> 激活豆包工作窗口 -> 点输入区 -> 粘贴 -> 回车发送 -> 切回
 Ctrl+Shift+Q 退出
 v4：用物理鼠标点击兜底激活（绕过 Windows 前台锁定），加宽输入框识别关键词，日志即时 flush
@@ -158,7 +158,7 @@ def on_hotkey():
     if not selected_text or selected_text == old_clipboard:
         log('[提示] 没有检测到新的选区内容，请先划选文字再按热键')
         return
-    log(f'[选区] 已获取 {len(selected_text)} 字；不打印正文')
+    log(f'[选区] {len(selected_text)} 字：{selected_text[:50]}')
 
     # 2. 找窗口
     win = get_doubao_work_window()
@@ -184,7 +184,7 @@ def on_hotkey():
         time.sleep(0.3)
         # 5. 回车发送
         pyautogui.press('enter')
-        log('[完成] 已执行粘贴和回车，请在目标对话核对接收结果')
+        log('[完成] 已发送到豆包工作对话')
     except Exception as e:
         log(f'[错误] 粘贴/发送阶段异常：{e}')
 
@@ -199,7 +199,7 @@ def on_hotkey():
 
 def main():
     log('=' * 50)
-    log('划词直达豆包工作工具已启动（原型 v4）')
+    log('划词直达豆包工作工具已启动（高可靠版 v4）')
     log(f'热键：{HOTKEY.upper()} ｜ 退出：Ctrl+Shift+Q')
     log('=' * 50)
     keyboard.add_hotkey(HOTKEY, on_hotkey)
